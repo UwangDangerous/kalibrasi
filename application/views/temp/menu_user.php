@@ -20,9 +20,9 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
+        <a class="nav-link" href="<?= base_url();?>alat">
+            <i class="fas fa-toolbox"></i>
+            <span>Daftar Alat</span></a>
         </a>
     </li>
 
