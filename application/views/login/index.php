@@ -42,7 +42,6 @@
                             <br>
                             <div class="text-center">
                                 <a class="small" href="<?= base_url(); ?>login/registers">Create an Account!</a>
-                                <?= md5(sha1("coba123")); ?>
                             </div>
                         </div>
                     </div>

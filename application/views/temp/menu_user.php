@@ -1,3 +1,5 @@
+    <?php if($this->session->userdata('key_kalibrasi') == 1) : ?>
+        
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                 aria-expanded="true" aria-controls="collapsePages">
@@ -7,12 +9,14 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Data Awal</h6>
-                    <a class="collapse-item" href="">Pengguna</a>
-                    <a class="collapse-item" href="">Akses Level</a>
-                    <a class="collapse-item" href="">Level Pengguna </a>
+                    <a class="collapse-item" href="<?= base_url(); ?>admin/unit">Tipe Unit</a>
+                    <a class="collapse-item" href="<?= base_url(); ?>admin/lab">Laboratorium</a>
+                    <a class="collapse-item" href="<?= base_url(); ?>admin/admin">User Admin</a>
                 </div>
             </div>
         </li>
+
+    <?php endif ; ?>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
