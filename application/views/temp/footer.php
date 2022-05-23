@@ -1,7 +1,7 @@
 
         <!-- <script src="<?//= base_url(); ?>assets/bootstrap/js/bootstrap.js" ></script> -->
         <script src="<?= base_url(); ?>assets/bootstrap/js/bootstrap.bundle.js" ></script>
-        <script src="<?= base_url(); ?>assets/js/script.js" ></script>
+        <script src="<?= base_url(); ?>assets/js/sb-admin-2.js" ></script>
 
 
         <!-- Initialize Quill editor -->
@@ -16,7 +16,7 @@
             } );
         </script>
 
-        <script src="<?= base_url(); ?>assets/js/jquery-chained.min.js"></script>
+        <!-- <script src="<?//= base_url(); ?>assets/js/jquery-chained.min.js"></script>
         
 
 
@@ -24,18 +24,17 @@
             $("#provinsi").click(function(){
                 $("#kota").chained("#provinsi");
             });
-        </script>
+        </script> -->
 
-        <script>
+        <!-- <script>
             tinymce.init({
                 selector: '#timy' ,
                 plugins: "lists,charmap,preview ",
                 toolbar: 'numlist bullist bold italic underline superscript subscript align charmap preview'
             });
-        </script>
+        </script> -->
 
-        <!-- js untuk select2  -->
-        <script src="<?= base_url(); ?>assets/jsDelivr/jsDelivr_select.js"></script>
+        <!-- <script src="<?//= base_url(); ?>assets/jsDelivr/jsDelivr_select.js"></script>
         <script>
             $(document).ready(function () {
                 $("#flexibel").select2({
@@ -43,7 +42,7 @@
                     placeholder: "--Pilih--"
                 });
             });
-        </script>
+        </script> -->
 
     </body>
 </html>

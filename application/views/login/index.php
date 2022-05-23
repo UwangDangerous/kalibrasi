@@ -1,45 +1,56 @@
-<div class="row">
-    <div class="col-lg-8 " id="login-form-kiri">
-        <img src="<?= base_url();?>assets/img/bg_pppomn.jpg" alt="">
-        <div id="text-login">
-            <h1>BPOM</h1>
-            <h6>SIMANTAP BMN</h6>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div id="form-login"> 
-            <div class='text-center'>
-                <img src="<?= base_url();?>assets/img/logo.png" alt=""> <br>
-                <br>
+<body class="" style="background-color:#1a237e;">
 
-                <h5>Silahkan Login</h5>
-            </div>
+    <div class="container">
 
-            <div class="container">
-                <?php if(!empty($this->session->flashdata('login') )) : ?>
-                    
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <?=  $this->session->flashdata('login'); ?>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-6 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Silahkan Login</h1>
+                            </div>
+
+                            <?php if(!empty($this->session->flashdata('login') )) : ?>
+
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <?=  $this->session->flashdata('login'); ?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                            <?php endif ; ?>
+
+                            <form class="user" method='post'>
+                                <div class="form-group">
+                                    <input name='username' autocomplete="off" autofocus  type="text" class="form-control form-control-user" placeholder="Nama Pengguna / E-mail">
+                                    <small id="usernameHelp" class="form-text text-danger"><?= form_error('username'); ?></small>
+                                </div>
+                                <div class="form-group">
+                                    <input name='password' type="password" class="form-control form-control-user" placeholder="Kata Sandi">
+                                    <small id="usernameHelp" class="form-text text-danger"><?= form_error('password'); ?></small>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block"  style="background-color:#1a237e;">
+                                    Login
+                                </button>
+                            </form>
+                            <br>
+                            <div class="text-center">
+                                <a class="small" href="<?= base_url(); ?>login/registers">Create an Account!</a>
+                                <?= md5(sha1("coba123")); ?>
+                            </div>
+                        </div>
                     </div>
-                    <br>
-                <?php endif ; ?>
-                
-                <form action="" method="post">
-                    <label for="username">Username / Email</label>
-                    <input type="text" name="username" id="username" class='form-control col-form-label-sm' placeholder="Username / Email" autocomplete='off'>
-                    <small id="usernameHelp" class="form-text text-danger"><?= form_error('username'); ?></small>
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" class='form-control col-form-label-sm' placeholder="Password">
-                    <small id="usernameHelp" class="form-text text-danger"><?= form_error('password'); ?></small>
-                    <br>
-                    <button class="btn btn-primary" type='submit'> login </button>
-                </form>
+                </div>
+
             </div>
-            <br>
-            <div class="bottomright">Manual Book</div>
+
         </div>
+
     </div>
-</div>
+

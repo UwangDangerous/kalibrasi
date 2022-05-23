@@ -9,7 +9,7 @@
 
         <link rel="stylesheet" href="<?=base_url(); ?>assets/bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="<?= base_url(); ?>assets/fontAwesome/css/all.css">
-        <link rel="stylesheet" href="<?=base_url(); ?>assets/css/temp_style.css">
+        <link rel="stylesheet" href="<?=base_url(); ?>assets/css/sb-admin-2.css">
         
         <link rel="stylesheet" href="<?= base_url();?>assets/css/dataTables.bootstrap4.min.css">
 
@@ -21,8 +21,8 @@
         <script src="<?= base_url(); ?>assets/js/dataTables.js" ></script>
         <script src="<?= base_url(); ?>assets/js/dataTables.bootstrap4.min.js" ></script>
 
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/jsDelivr/jsDelivr_select_bootstrap4.min.css">
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/jsDelivr/jsDelivr_select.css">
+        <!-- <link rel="stylesheet" href="<?//= base_url(); ?>assets/jsDelivr/jsDelivr_select_bootstrap4.min.css">
+        <link rel="stylesheet" href="<?//= base_url(); ?>assets/jsDelivr/jsDelivr_select.css"> -->
         <link rel="stylesheet" href="<?=base_url(); ?>assets/css/mystyle.css">
 
         <script src="<?= base_url(); ?>assets/tinymce/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>

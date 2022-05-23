@@ -1,77 +1,28 @@
-<?php if($this->session->userdata('kunci') == 1) : ?>
-    <!-- master data -->
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                Master Data
-            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Master Data</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Data Awal</h6>
+                    <a class="collapse-item" href="">Pengguna</a>
+                    <a class="collapse-item" href="">Akses Level</a>
+                    <a class="collapse-item" href="">Level Pengguna </a>
+                </div>
+            </div>
+        </li>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Charts</span></a>
         </a>
-        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-            <nav class="sb-sidenav-menu-nested nav">
-                <a class="nav-link" href="<?= base_url(); ?>admin/kategori">
-                    <div class="sb-nav-link-icon"><i class="fa fa-folder"></i></div>
-                    Kategori
-                </a>
-                <a class="nav-link" href="<?= base_url(); ?>admin/unit">
-                    <div class="sb-nav-link-icon"><i class="fa fa-wrench"></i></div>
-                    Unit
-                </a>
-                <a class="nav-link" href="<?= base_url(); ?>admin/perusahaan">
-                    <div class="sb-nav-link-icon"><i class="fa fa-user-tie"></i></div>
-                    Pemasok
-                </a>
-                <a class="nav-link" href="<?= base_url(); ?>admin/sdm">
-                    <div class="sb-nav-link-icon"><i class="fa fa-users"></i></div>
-                    SDM
-                </a>
-            </nav>
-        </div>
-    <!-- master data -->
+    </li>
 
-    <!-- produk -->
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produk" aria-expanded="false" aria-controls="produk">
-            <div class="sb-nav-link-icon"><i class="fas fa-shopping-basket"></i></div>
-                Produk
-            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-        </a>
-        <div class="collapse" id="produk" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-            <nav class="sb-sidenav-menu-nested nav">
-                <a class="nav-link" href="<?= base_url(); ?>admin/produk">
-                    <div class="sb-nav-link-icon"><i class="fab fa-dropbox"></i></div>
-                    Daftar Produk
-                </a>
-                <a class="nav-link" href="<?= base_url(); ?>admin/barangMasuk">
-                    <div class="sb-nav-link-icon"><i class="fas fa-cart-plus"></i></div>
-                    Barang Masuk
-                </a>
-            </nav>
-        </div>
-    <!-- produk -->
-
-
-
-
-
-    <!-- Akun -->
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Akun" aria-expanded="false" aria-controls="Akun">
-            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-            Profil
-            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-        </a>
-        <div class="collapse" id="Akun" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-            <nav class="sb-sidenav-menu-nested nav">
-                <a class='nav-link' href="<?= base_url(); ?>notifikasi">
-                    <div class="sb-nav-link-icon"><i class="fas fa-bell"></i></div>
-                    Notifikasi 
-                    <span class="badge badge-danger">2</span>
-                </a>
-
-                <a class="nav-link" href="<?= base_url(); ?>login/logout">
-                    <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
-                    Logout
-                </a>
-            </nav>
-        </div>
-    <!-- Akun -->
-<?php else : ?>
-
-<?php endif ; ?>
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>

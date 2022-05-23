@@ -10,13 +10,11 @@
 
         public function index()
         {
-            $data['judul'] = 'Dashboard '; 
-            $data['header'] = 'Dashboard'; 
-            $data['bread'] = 'Dashboard'; 
+            $data['judul'] = 'Halaman Login - Kalibrasi'; 
 
-            if( $this->session->userdata('kunci') == null ){
+            if( $this->session->userdata('kalibrasi_key') == null ){
 
-                $this->form_validation->set_rules('username', 'Username / Email', 'required');
+                $this->form_validation->set_rules('username', 'Nama Pengguna', 'required');
                 $this->form_validation->set_rules('password', 'Password', 'required|min_length[5]');
 
                 if($this->form_validation->run() == FALSE) {
