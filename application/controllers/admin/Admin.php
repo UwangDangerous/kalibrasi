@@ -11,7 +11,7 @@
         }
 
         public function index() {
-            if( $this->session->userdata('key_kalibrasi') != null ){
+            if( $this->session->userdata('key_kalibrasi') != null  && $this->session->userdata('key_kalibrasi') == 1){
                 $data['judul'] = 'Data Admin '; 
                 $data['header'] = 'Data Admin'; 
                 $data['bread'] = '
@@ -34,7 +34,7 @@
 
         public function tambah()
         {
-            if( $this->session->userdata('key_kalibrasi') != null ){
+            if( $this->session->userdata('key_kalibrasi') != null && $this->session->userdata('key_kalibrasi') == 1  ){
                 $data['judul'] = 'Tambah Data Admin '; 
                 $data['header'] = 'Tambah Data'; 
                 $data['bread'] = '
@@ -79,7 +79,7 @@
 
         public function ubah($id)
         {
-            if( $this->session->userdata('key_kalibrasi') != null ){
+            if( $this->session->userdata('key_kalibrasi') != null && $this->session->userdata('key_kalibrasi') == 1 ){
                 $data['judul'] = 'Ubah Data Admin '; 
                 $data['header'] = 'Ubah Data'; 
                 $data['bread'] = '
