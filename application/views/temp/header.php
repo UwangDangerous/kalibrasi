@@ -27,6 +27,8 @@
 
         <script src="<?= base_url(); ?>assets/tinymce/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
 
+        <script src="<?= base_url(); ?>assets/js/jquery-chained.min.js"></script>
+
     </head> 
     <body >
                         
