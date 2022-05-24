@@ -17,12 +17,14 @@
         <table class="table table-bordered table-striped text-center" id="tabel">
             <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Nama Admin</th>
-                    <th>Penanggung Jawab</th>
-                    <th>No. Telp / WA</th>
-                    <th>Alamat</th>
-                    <th>Aksi</th>
+                    <th class='align-middle'>No</th>
+                    <th class='align-middle'>Admin</th>
+                    <th class='align-middle'>Nama Alat</th>
+                    <th class='align-middle'>No Seri</th>
+                    <th class='align-middle'>No BMN</th>
+                    <th class='align-middle'>Laboratorium</th>
+                    <th class='align-middle'>Tahun</th>
+                    <th class='align-middle'>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,11 +39,13 @@
                                 <?= $row['nama_unit']; ?> <?= $row['nama_admin']; ?>
                             <?php endif ; ?>
                         </td>
-                        <td><?= $row['nama_pj']; ?></td>
-                        <td><?= $row['telp_pj']; ?></td>
+                        <td><?= $row['nama_alat']; ?> , <?= $row['merek']; ?>, <?= $row['tipe']; ?></td>
+                        <td><?= $row['no_seri']; ?></td>
                         <td>
-                            <?= $row['alamat']; ?>, <?= $row['nama_kota']; ?>, <?= $row['nama_prov']; ?>
+                            <?= $row['lokasi_alat']; ?>
                         </td>
+                        <td><?= $row['nama_lab']; ?></td>
+                        <td><?= $row['tahun']; ?></td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#rinci_<?= $row['id_alat']; ?>" data-toggle='tooltip' title='Rincian Data' class="badge badge-primary"><i class="fa fa-eye"></i></a>
                             <a href="<?= base_url(); ?>admin/alat/ubah/<?= $row['id_alat']; ?>" data-toggle='tooltip' title='Ubah Data' class="badge badge-success"><i class="fa fa-edit"></i></a>
@@ -56,7 +60,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Rincian Data Admin</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Rincian Data Alat</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                     </button>
@@ -84,10 +88,37 @@
                                         <div class="col-4">Email</div>
                                         <div class="col-6">: <?= $row['email']; ?> </div>
 
-                                        <div class="col-4">Alamat</div>
-                                        <div class="col-6">: 
-                                            <?= $row['alamat']; ?>, <?= $row['nama_kota']; ?>, <?= $row['nama_prov']; ?>
-                                        </div>
+                                        <hr>
+
+                                        <div class="col-4">Nama Alat</div>
+                                        <div class="col-6">: <?= $row['nama_alat']; ?></div>
+
+                                        <div class="col-4">Merek</div>
+                                        <div class="col-6">: <?= $row['merek']; ?></div>
+
+                                        <div class="col-4">Tipe</div>
+                                        <div class="col-6">: <?= $row['tipe']; ?></div>
+
+                                        <div class="col-4">Nomor Seri</div>
+                                        <div class="col-6">: <?= $row['no_seri']; ?></div>
+
+                                        <div class="col-4">Nomor BMN</div>
+                                        <div class="col-6">: <?= $row['no_bmn']; ?></div>
+
+                                        <div class="col-4">Lab</div>
+                                        <div class="col-6">: <?= $row['nama_lab']; ?></div>
+                                        
+                                        <div class="col-4">Lokasi Alat</div>
+                                        <div class="col-6">: <?= $row['lokasi_alat']; ?></div>
+                                        
+                                        <div class="col-4">Daya Listrik</div>
+                                        <div class="col-6">: <?= $row['daya_listrik']; ?></div>
+
+                                        <div class="col-4">Kondisi</div>
+                                        <div class="col-6">: <?= $row['kondisi']; ?></div>
+
+                                        <div class="col-4">Nomor Sertifikat</div>
+                                        <div class="col-6">: <?= $row['no_serti']; ?></div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

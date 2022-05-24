@@ -3,43 +3,55 @@
     class Alat_model extends CI_Model{
         public function getDataAlat()
         {
-            $this->db->join('_kota', '_kota.id_kota = alat.id_kota') ;
-            $this->db->join('_provinsi', '_provinsi.id_prov = _kota.id_prov') ;
+            if($this->session->userdata('key_kalibrasi') != 1){
+                $this->db->where('alat.id_admin', $this->session->userdata('key_kalibrasi')) ;
+            } 
+            
             $this->db->join('lab', 'lab.id_lab = alat.id_lab') ;
 
             $this->db->join('admin','admin.id_admin = alat.id_admin') ;
             $this->db->join('unit', 'unit.id_unit = admin.id_unit') ;
-            // $this->db->select('unit.id_unit as id_unit, nama_alat, nama_unit, nama_pj, id_alat, alamat, nama_kota, nama_prov, telp_pj,
-            //                      nama_kepala, email') ;
             return $this->db->get('alat')->result_array() ;
         }
-
-        public function getDataAlatEdit($id) 
+        public function getDataAlatEdit($id)
         {
-            // $this->db->where('id_admin', $id) ;
-            // $this->db->join('_kota', '_kota.id_kota = admin.id_kota') ;
-            // $this->db->join('_provinsi', '_provinsi.id_prov = _kota.id_prov') ;
-            // $this->db->join('unit', 'unit.id_unit = admin.id_unit') ;
-            // return $this->db->get('admin')->row_array() ;
+            $this->db->where('id_alat', $id) ;
+            $this->db->join('lab', 'lab.id_lab = alat.id_lab') ;
+            $this->db->join('admin','admin.id_admin = alat.id_admin') ;
+            $this->db->join('unit', 'unit.id_unit = admin.id_unit') ;
+            return $this->db->get('alat')->row_array() ;
         }
 
         public function addAlat()
         {
+            $tahun = $this->input->post('tahun', true)  ;
+            if(strlen($tahun) != 4){
+                $this->session->set_flashdata(
+                    [
+                        'pesan' => "Gagal Disimpan - Kesalahan Saat input tahun <b>($tahun)</b>",
+                        'warna' => 'danger'
+                    ] 
+                );
+                redirect("admin/alat") ;
+            } 
+
 
             $query = [
-                'nama_admin' => $this->input->post('nama_admin') ,
-                'id_unit' => $this->input->post('id_unit') ,
-                'id_kota' => $this->input->post('id_kota') ,
-                'alamat' => $this->input->post('alamat') ,
-                'nama_pj' => $this->input->post('nama_pj') ,
-                'telp_pj' => $this->input->post('telp_pj') ,
-                'email' => $this->input->post('email') ,
-                'nama_kepala' => $this->input->post('nama_kepala') ,
-                'username' => $this->input->post('username') ,
-                'password' => md5(sha1('p@ssw0rd')) 
+                'id_admin' => $this->input->post('id_admin', true) ,
+                'nama_alat' => $this->input->post('nama_alat', true) ,
+                'merek' => $this->input->post('merek', true) ,
+                'tipe' => $this->input->post('tipe', true) ,
+                'no_seri' => $this->input->post('no_seri', true) ,
+                'no_bmn' => $this->input->post('no_bmn', true) ,
+                'id_lab' => $this->input->post('id_lab', true) ,
+                'lokasi_alat' => $this->input->post('lokasi_alat', true) ,
+                'daya_listrik' => $this->input->post('daya_listrik', true) ,
+                'tahun' => $tahun,
+                'kondisi' => $this->input->post('kondisi', true) ,
+                'no_serti' => $this->input->post('no_serti', true) 
             ];
 
-            if($this->db->insert('admin', $query))
+            if($this->db->insert('alat', $query))
             {
                 $pesan = [
                     'pesan' => 'Data Berhasil Disimpan' ,
@@ -53,28 +65,42 @@
             }
 
             $this->session->set_flashdata($pesan) ;
-            redirect("admin/admin") ;
+            redirect("admin/alat") ;
         }
 
         public function editAlat($id)
         {
 
+            $tahun = $this->input->post('tahun', true)  ;
+            if(strlen($tahun) != 4){
+                $this->session->set_flashdata(
+                    [
+                        'pesan' => "Gagal Disimpan - Kesalahan Saat input tahun <b>($tahun)</b>",
+                        'warna' => 'danger'
+                    ] 
+                );
+                redirect("admin/alat") ;
+            } 
+
+
             $query = [
-                'nama_admin' => $this->input->post('nama_admin') ,
-                'id_unit' => $this->input->post('id_unit') ,
-                'id_kota' => $this->input->post('id_kota') ,
-                'alamat' => $this->input->post('alamat') ,
-                'nama_pj' => $this->input->post('nama_pj') ,
-                'telp_pj' => $this->input->post('telp_pj') ,
-                'email' => $this->input->post('email') ,
-                'nama_kepala' => $this->input->post('nama_kepala') ,
-                'username' => $this->input->post('username') ,
-                'password' => md5(sha1('p@ssw0rd')) 
+                'id_admin' => $this->input->post('id_admin', true) ,
+                'nama_alat' => $this->input->post('nama_alat', true) ,
+                'merek' => $this->input->post('merek', true) ,
+                'tipe' => $this->input->post('tipe', true) ,
+                'no_seri' => $this->input->post('no_seri', true) ,
+                'no_bmn' => $this->input->post('no_bmn', true) ,
+                'id_lab' => $this->input->post('id_lab', true) ,
+                'lokasi_alat' => $this->input->post('lokasi_alat', true) ,
+                'daya_listrik' => $this->input->post('daya_listrik', true) ,
+                'tahun' => $tahun,
+                'kondisi' => $this->input->post('kondisi', true) ,
+                'no_serti' => $this->input->post('no_serti', true) 
             ];
 
-            $this->db->where('id_admin', $id) ;
+            $this->db->where('id_alat', $id) ;
             $this->db->set($query) ;
-            if($this->db->update('admin'))
+            if($this->db->update('alat'))
             {
                 $pesan = [
                     'pesan' => 'Data Berhasil Diubah' ,
@@ -88,7 +114,7 @@
             }
 
             $this->session->set_flashdata($pesan) ;
-            redirect("admin/admin") ;
+            redirect("admin/alat") ;
         }
 
     }

@@ -24,16 +24,16 @@
         {
 
             $query = [
-                'nama_admin' => $this->input->post('nama_admin') ,
-                'id_unit' => $this->input->post('id_unit') ,
-                'id_kota' => $this->input->post('id_kota') ,
-                'alamat' => $this->input->post('alamat') ,
-                'nama_pj' => $this->input->post('nama_pj') ,
-                'telp_pj' => $this->input->post('telp_pj') ,
-                'email' => $this->input->post('email') ,
-                'nama_kepala' => $this->input->post('nama_kepala') ,
-                'username' => $this->input->post('username') ,
-                'password' => md5(sha1('p@ssw0rd')) 
+                'nama_admin' => $this->input->post('nama_admin', true) ,
+                'id_unit' => $this->input->post('id_unit', true) ,
+                'id_kota' => $this->input->post('id_kota', true) ,
+                'alamat' => $this->input->post('alamat', true) ,
+                'nama_pj' => $this->input->post('nama_pj', true) ,
+                'telp_pj' => $this->input->post('telp_pj', true) ,
+                'email' => $this->input->post('email', true) ,
+                'nama_kepala' => $this->input->post('nama_kepala', true) ,
+                'username' => $this->input->post('username', true) ,
+                'password' => md5(sha1('p@ssw0rd', true)) 
             ];
 
             if($this->db->insert('admin', $query))
@@ -57,16 +57,16 @@
         {
 
             $query = [
-                'nama_admin' => $this->input->post('nama_admin') ,
-                'id_unit' => $this->input->post('id_unit') ,
-                'id_kota' => $this->input->post('id_kota') ,
-                'alamat' => $this->input->post('alamat') ,
-                'nama_pj' => $this->input->post('nama_pj') ,
-                'telp_pj' => $this->input->post('telp_pj') ,
-                'email' => $this->input->post('email') ,
-                'nama_kepala' => $this->input->post('nama_kepala') ,
-                'username' => $this->input->post('username') ,
-                'password' => md5(sha1('p@ssw0rd')) 
+                'nama_admin' => $this->input->post('nama_admin', true) ,
+                'id_unit' => $this->input->post('id_unit', true) ,
+                'id_kota' => $this->input->post('id_kota', true) ,
+                'alamat' => $this->input->post('alamat', true) ,
+                'nama_pj' => $this->input->post('nama_pj', true) ,
+                'telp_pj' => $this->input->post('telp_pj', true) ,
+                'email' => $this->input->post('email', true) ,
+                'nama_kepala' => $this->input->post('nama_kepala', true) ,
+                'username' => $this->input->post('username', true) ,
+                'password' => md5(sha1('p@ssw0rd', true)) 
             ];
 
             $this->db->where('id_admin', $id) ;

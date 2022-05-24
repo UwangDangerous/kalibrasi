@@ -5,8 +5,8 @@
         {
             parent::__construct() ;
             $this->load->model('Alat_model') ;
+            $this->load->model('Admin_model') ;
             $this->load->model('Lab_model') ;
-            $this->load->model('Address_model') ;
             $this->load->library('form_validation') ;
         }
 
@@ -39,41 +39,103 @@
                 $data['header'] = 'Tambah Data'; 
                 $data['bread'] = '
                     <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'dashboard"> Dashboard </a> </li>
-                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'admin/admin"> Alat </a> </li>
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'admin/alat"> Daftar Alat </a> </li>
                     <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
                 '; 
 
-                $data['prov'] = $this->Address_model->getDataProv() ;
-                $data['kota'] = $this->Address_model->getDataKota() ;
+                $data['admin'] = $this->Admin_model->getDataAdmin() ;
+                $data['lab'] = $this->Lab_model->getDataLab() ;
 
-                $this->form_validation->set_rules('nama_admin', 'Nama Alat', 'required');
-                $this->form_validation->set_rules('id_unit', 'Unit', 'required');
-                $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-                $this->form_validation->set_rules('id_prov', 'Provinsi', 'required');
-                $this->form_validation->set_rules('id_kota', 'Kota', 'required');
-                $this->form_validation->set_rules('nama_kepala', 'Nama Kepala / Ketua', 'required');
-                $this->form_validation->set_rules('nama_pj', 'Nama Penanggung Jawab', 'required');
-                $this->form_validation->set_rules('telp_pj', 'Nomor PJ', 'required|numeric');
-                $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[admin.email]');
-                $this->form_validation->set_rules('username', 'Nama Pengguna', 'required|is_unique[admin.username]');
+                $this->form_validation->set_rules('id_admin', 'Admin', 'required');
+                $this->form_validation->set_rules('nama_alat', 'Nama Alat', 'required');
+                $this->form_validation->set_rules('merek', 'Merek', 'required');
+                $this->form_validation->set_rules('tipe', 'Tipe', 'required');
+                $this->form_validation->set_rules('no_seri', 'Nomor Seri', 'required');
+                $this->form_validation->set_rules('id_lab', 'Laboratorium', 'required');
+                $this->form_validation->set_rules('lokasi_alat', 'Lokasi Alat', 'required');
+                $this->form_validation->set_rules('tahun', 'Tahun', 'required|numeric');
+                $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
 
                 if($this->form_validation->run() == FALSE) {
                 
                     $this->load->view('temp/header',$data) ;
                     $this->load->view('temp/dsbHeader') ;
-                    $this->load->view('admin/admin/tambah') ;
+                    $this->load->view('admin/alat/tambah') ;
                     $this->load->view('temp/dsbFooter') ;
                     $this->load->view('temp/footer') ;
 
                 }else{
 
-                    $this->Admin_model->addAdmin() ;
+                    $this->Alat_model->addAlat() ;
 
                 }
             }else{
                 $this->session->set_flashdata("login", "Silahkan Login Kembali");
                 redirect("login") ;
             }
+        }
+
+        public function ubah($id)
+        {
+            if( $this->session->userdata('key_kalibrasi') != null ){
+                $data['judul'] = 'Tambah Data Alat '; 
+                $data['header'] = 'Tambah Data'; 
+                $data['bread'] = '
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'dashboard"> Dashboard </a> </li>
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'admin/alat"> Daftar Alat </a> </li>
+                    <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
+                '; 
+
+                $data['alat'] = $this->Alat_model->getDataAlatEdit($id) ;
+                $data['admin'] = $this->Admin_model->getDataAdmin() ;
+                $data['lab'] = $this->Lab_model->getDataLab() ;
+
+                $this->form_validation->set_rules('id_admin', 'Admin', 'required');
+                $this->form_validation->set_rules('nama_alat', 'Nama Alat', 'required');
+                $this->form_validation->set_rules('merek', 'Merek', 'required');
+                $this->form_validation->set_rules('tipe', 'Tipe', 'required');
+                $this->form_validation->set_rules('no_seri', 'Nomor Seri', 'required');
+                $this->form_validation->set_rules('id_lab', 'Laboratorium', 'required');
+                $this->form_validation->set_rules('lokasi_alat', 'Lokasi Alat', 'required');
+                $this->form_validation->set_rules('tahun', 'Tahun', 'required|numeric');
+                $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
+
+                if($this->form_validation->run() == FALSE) {
+                
+                    $this->load->view('temp/header',$data) ;
+                    $this->load->view('temp/dsbHeader') ;
+                    $this->load->view('admin/alat/ubah') ;
+                    $this->load->view('temp/dsbFooter') ;
+                    $this->load->view('temp/footer') ;
+
+                }else{
+
+                    $this->Alat_model->editAlat($id) ;
+
+                }
+            }else{
+                $this->session->set_flashdata("login", "Silahkan Login Kembali");
+                redirect("login") ;
+            }
+        }
+
+        public function hapus($id) 
+        {
+            $this->db->where('id_alat', $id) ;
+            if($this->db->delete('alat')) {
+                $pesan = [
+                    'pesan' => 'Data Berhasil Dihapus' ,
+                    'warna' => 'success'
+                ];
+            }else{
+                $pesan = [
+                    'pesan' => 'Data Gagal Dihapus' ,
+                    'warna' => 'danger'
+                ];
+            }
+
+            $this->session->set_flashdata($pesan) ;
+            redirect("admin/alat") ;
         }
     }
 
