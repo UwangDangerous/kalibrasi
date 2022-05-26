@@ -7,6 +7,7 @@
             $this->load->model('Alat_model') ;
             $this->load->model('Admin_model') ;
             $this->load->model('Lab_model') ;
+            $this->load->model('QRCode_model') ;
             $this->load->library('form_validation') ;
         }
 

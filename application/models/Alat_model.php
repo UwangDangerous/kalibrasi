@@ -35,6 +35,7 @@
                 redirect("admin/alat") ;
             } 
 
+            $kode = substr(md5(date("Y-m-d G:i:s")),0,15);
 
             $query = [
                 'id_admin' => $this->input->post('id_admin', true) ,
@@ -48,7 +49,8 @@
                 'daya_listrik' => $this->input->post('daya_listrik', true) ,
                 'tahun' => $tahun,
                 'kondisi' => $this->input->post('kondisi', true) ,
-                'no_serti' => $this->input->post('no_serti', true) 
+                'no_serti' => $this->input->post('no_serti', true) ,
+                'kode_alat' => $kode
             ];
 
             if($this->db->insert('alat', $query))
@@ -64,6 +66,7 @@
                 ];
             }
 
+            $this->QRCode_model->setQR($kode) ;
             $this->session->set_flashdata($pesan) ;
             redirect("admin/alat") ;
         }

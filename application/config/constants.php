@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 define("WEB", "Kalibrasi");
+define("SEO", "PPPOMN, Pusat Pengembangan Pengujian Obat dan Makanan Nasional, Ridwan Hafifudin, Kalibrasi PPPOMN, Alat Kalibrasi ");
 
 /*
 |--------------------------------------------------------------------------

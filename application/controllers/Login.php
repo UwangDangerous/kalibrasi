@@ -12,7 +12,7 @@
         {
             $data['judul'] = 'Halaman Login - Kalibrasi'; 
 
-            if( $this->session->userdata('kalibrasi_key') == null ){
+            if( $this->session->userdata('key_kalibrasi') == null ){
 
                 $this->form_validation->set_rules('username', 'Nama Pengguna', 'required');
                 $this->form_validation->set_rules('password', 'Password', 'required|min_length[5]');
@@ -27,7 +27,7 @@
                     $this->Login_model->cekLogin($name, $pass) ;
                 }
             }else{
-                redirect("home") ;
+                redirect("dashboard") ;
             }
         }
 

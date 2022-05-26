@@ -119,6 +119,11 @@
 
                                         <div class="col-4">Nomor Sertifikat</div>
                                         <div class="col-6">: <?= $row['no_serti']; ?></div>
+
+                                        <div class="col-4">QR Code</div>
+                                        <div class="col-6">:
+                                              <img src="<?= base_url();?>assets/qr_code/<?= $row['kode_alat'];?>.png" alt="">  
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
