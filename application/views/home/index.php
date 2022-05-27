@@ -77,34 +77,36 @@
             <div class="col-lg-8 col-xl-6 text-center">
                 <h2 class="mt-0">Hubungi Kami</h2>
                 <br>
-                <p class="mb-5">Silahkan berikan ulasan untuk aplikasi</p>
+                <!-- <p class="mb-5">Silahkan berikan ulasan untuk aplikasi</p> -->
+                <?php  if($this->session->flashdata('pesan')) : ?>
+                    <div class="alert alert-<?= $this->session->flashdata('warna') ;?> alert-dismissible fade show" role="alert">
+                        <?= $this->session->flashdata('pesan'); ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php  endif ; ?>
             </div>
         </div>
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5 text-dark">
             <div class="col-lg-6">
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                        <label for="name">Full name</label>
-                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                <form method="post" action="">
+                    <div class="form-group">
+                        <input class="form-control" id="nama" name='nama' type="text" placeholder="Nama" value="<?= set_value('nama');?>"/>
+                        <small id="usernameHelp" class="form-text text-light"><?= form_error('nama'); ?></small>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                        <label for="email">Email address</label>
-                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                    <div class="form-group">
+                        <input class="form-control" id="email" name='email' type="email" placeholder="Email" value="<?= set_value('email');?>"/>
+                        <small id="usernameHelp" class="form-text text-light"><?= form_error('email'); ?></small>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                        <label for="phone">Phone number</label>
-                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                    <div class="form-group">
+                        <input class="form-control" id="no_telp" name='no_telp' type="number" placeholder="Nomor Telpon" value="<?= set_value('no_telp');?>"/>
+                        <small id="usernameHelp" class="form-text text-light"><?= form_error('no_telp'); ?></small>
                     </div>
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                        <label for="message">Message</label>
-                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                    <div class="form-group mb-3">
+                        <textarea class="form-control" id="pesan" name='pesan' type="text" placeholder="Tambahkan Pesan..." style="height: 10rem"><?= set_value('pesan');?></textarea>
+                        <small id="usernameHelp" class="form-text text-light"><?= form_error('pesan'); ?></small>
                     </div>
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <br>
                     <div class="d-grid"><button class="btn btn-primary btn-xl bayangan"  type="submit">Submit</button></div>
                 </form>

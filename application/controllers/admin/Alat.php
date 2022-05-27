@@ -8,6 +8,7 @@
             $this->load->model('Admin_model') ;
             $this->load->model('Lab_model') ;
             $this->load->model('QRCode_model') ;
+            $this->load->model('Date_model') ;
             $this->load->library('form_validation') ;
         }
 
@@ -137,6 +138,30 @@
 
             $this->session->set_flashdata($pesan) ;
             redirect("admin/alat") ;
+        }
+
+        public function riwayat($id) {
+            if( $this->session->userdata('key_kalibrasi') != null ){
+                $data['judul'] = 'Riwayat Pemakaian Alat '; 
+                $data['header'] = 'Riwayat Pemakaian Alat'; 
+                $data['bread'] = '
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'dashboard"> Dashboard </a> </li>
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'admin/alat"> Daftar Alat </a> </li>
+                    <li class="breadcrumb-item active" aria-current="page">Riwayat Pemakaian Alat</li>
+                '; 
+                
+                $data['pemakaian'] = $this->Alat_model->getDataRiwayatPemakaian($id) ;
+                $data['kalibrasi'] = $this->Alat_model->getDataRiwayatKalibrasi($id) ;
+                
+                $this->load->view('temp/header',$data) ;
+                $this->load->view('temp/dsbHeader') ;
+                $this->load->view('admin/alat/riwayat') ;
+                $this->load->view('temp/dsbFooter') ;
+                $this->load->view('temp/footer') ;
+            }else{
+                $this->session->set_flashdata("login", "Silahkan Login Kembali");
+                redirect("login") ;
+            }
         }
     }
 

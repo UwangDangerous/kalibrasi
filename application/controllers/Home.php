@@ -7,6 +7,7 @@
             parent::__construct() ;
             $this->load->library('form_validation');
             $this->load->model('Date_model') ;
+            $this->load->model('Lab_model') ;
         } 
 
         public function index() {
@@ -17,9 +18,19 @@
                 $data['about'] =  $this->db->get_where('_utility',['penggunaan' => 'about'])->row_array();
                 $data['scan'] =  $this->db->get_where('_utility',['penggunaan' => 'scan'])->result_array();
                 
-                $this->load->view('temp/landing/header', $data) ;
-                $this->load->view('home/index') ;
-                $this->load->view('temp/landing/footer') ;
+
+                $this->form_validation->set_rules('nama', 'Nama', 'required');
+                $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+                $this->form_validation->set_rules('no_telp', 'Nomor Telpon', 'required|numeric');
+                $this->form_validation->set_rules('pesan', 'Pesan', 'required');
+
+                if($this->form_validation->run() == FALSE) {
+                    $this->load->view('temp/landing/header', $data) ;
+                    $this->load->view('home/index') ;
+                    $this->load->view('temp/landing/footer') ;
+                }else{
+                    $this->Lab_model->addPesan() ;
+                }
         }
 
         public function scan_kamera()
@@ -150,6 +161,7 @@
                 
             }
         }
+
 
 
     }

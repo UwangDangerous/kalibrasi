@@ -182,6 +182,30 @@
                 redirect("login") ;
             }
         }
+
+        public function Pesan()
+        {
+            if( $this->session->userdata('key_kalibrasi') != null && $this->session->userdata('key_kalibrasi') == 1 ){
+                $data['judul'] = 'Pesan '; 
+                $data['header'] = 'Pesan Dari User'; 
+                $data['bread'] = '
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'dashboard"> Dashboard </a> </li>
+                    <li class="breadcrumb-item active" aria-current="page">Pesan Dari User</li>
+                '; 
+
+                $data['pesan'] = $this->db->get('_pesan')->result_array() ;
+                
+                $this->load->view('temp/header',$data) ;
+                $this->load->view('temp/dsbHeader') ;
+                $this->load->view('admin/pesan') ;
+                $this->load->view('temp/dsbFooter') ;
+                $this->load->view('temp/footer') ;
+
+            }else{
+                $this->session->set_flashdata("login", "Silahkan Login Kembali");
+                redirect("login") ;
+            }
+        }
     }
 
 ?>

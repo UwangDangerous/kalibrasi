@@ -12,10 +12,17 @@
                     <a class="collapse-item" href="<?= base_url(); ?>admin/unit">Tipe Unit</a>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/lab">Laboratorium</a>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/lab/utility">Pengaturan</a>
-                    <a class="collapse-item" href="<?= base_url(); ?>admin/admin">User Admin</a>
+                    <a class="collapse-item" href="<?= base_url(); ?>admin/lab/pesan">Pesan</a>
                 </div>
             </div>
         </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>admin/admin">
+            <i class="fa fa-users"></i>
+            <span>Daftar Admin</span></a>
+        </a>
+    </li>
 
     <?php endif ; ?>
 

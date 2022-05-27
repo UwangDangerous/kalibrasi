@@ -56,6 +56,32 @@
             $this->session->set_flashdata($pesan) ;
             redirect("admin/lab") ;
         }
+
+
+        public function addPesan() 
+        {
+            $query = [
+                'nama' => $this->input->post('nama'),
+                'email' => $this->input->post('email'),
+                'no_telp' => $this->input->post('no_telp'),
+                'pesan' => $this->input->post('pesan')
+            ] ;
+
+            if($this->db->insert('_pesan', $query)) {
+                $pesan = [
+                    'pesan' => 'Pesan Berhasil dikirim, Terimakasih..',
+                    'warna' => 'success'
+                ];
+            }else{
+                $pesan = [
+                    'pesan' => 'Pesan Gagal dikirim',
+                    'warna' => 'danger'
+                ];
+            }
+
+            $this->session->set_flashdata($pesan) ;
+            redirect("home#contact") ;
+        }
     }
 
 ?>

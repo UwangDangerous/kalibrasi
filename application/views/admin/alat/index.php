@@ -52,6 +52,7 @@
                             <?php if($row['id_alat'] != 1) : ?>
                                 <a href="<?= base_url(); ?>admin/alat/hapus/<?= $row['id_alat']; ?>" data-toggle='tooltip' title='Hapus Data' class="badge badge-danger"><i class="fa fa-trash" onclick="return confirm('Yakin Hapus?');"></i></a>
                             <?php endif ; ?>
+                            <a href="<?= base_url();?>admin/alat/riwayat/<?= $row['id_alat'];?>" data-toggle='tooltip' title="Riwayat Pemakaian dan Kalibrasi Alat" class="badge badge-info"> <i class="fa fa-info"></i></a>
                         </td>
                     </tr>
 

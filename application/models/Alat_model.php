@@ -129,6 +129,20 @@
             redirect("admin/alat") ;
         }
 
+
+
+
+        public function getDataRiwayatPemakaian($id){
+            $this->db->where('id_alat', $id) ;
+            $this->db->order_by('id_rp', 'desc') ;
+            return $this->db->get('riwayat_pemakaian')->result_array() ;
+        }
+        public function getDataRiwayatKalibrasi($id){
+            $this->db->where('id_alat', $id) ;
+            $this->db->order_by('id_rk', 'desc') ;
+            return $this->db->get('riwayat_kalibrasi')->result_array() ;
+        }
+
     }
 
 ?>
