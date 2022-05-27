@@ -4,8 +4,8 @@ Scan Disini
 <!-- <br>
 <select id="pilihKamera" style="max-width:400px">
 </select>
-<br>
-<input type="text" id="hasilscan" class="hasilscan_go"> -->
+<br>-->
+<input type="hidden" id="hasilscan" class="hasilscan_go"> 
 
 <script>
     let selectedDeviceId = null;
@@ -58,9 +58,9 @@ function initScanner() {
                 .then(result => {
 
                         //hasil scan
-                        console.log(result.text)
-                        // $("#hasilscan").val(result.text);
-                        window.location.href = "<?= base_url();?>home/riwayatPenggunaanAlat?k=8537f7be996b6a4";
+                        // console.log(result.text)
+                        // var hasilKu = $("#hasilscan").val(result.text);
+                        window.location.href = "<?= base_url();?>home/riwayatPenggunaanAlat?k="+result.text+"#riwayat";
                         
                         if(codeReader){
                             codeReader.reset()

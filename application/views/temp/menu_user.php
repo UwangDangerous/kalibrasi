@@ -11,6 +11,7 @@
                     <h6 class="collapse-header">Data Awal</h6>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/unit">Tipe Unit</a>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/lab">Laboratorium</a>
+                    <a class="collapse-item" href="<?= base_url(); ?>admin/lab/utility">Pengaturan</a>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/admin">User Admin</a>
                 </div>
             </div>

@@ -22,6 +22,15 @@
             return $this->db->get('alat')->row_array() ;
         }
 
+        public function getDataAlatKey($key)
+        {
+            $this->db->where('kode_alat', $key) ;
+            $this->db->join('lab', 'lab.id_lab = alat.id_lab') ;
+            $this->db->join('admin','admin.id_admin = alat.id_admin') ;
+            $this->db->join('unit', 'unit.id_unit = admin.id_unit') ;
+            return $this->db->get('alat')->row_array() ;
+        }
+
         public function addAlat()
         {
             $tahun = $this->input->post('tahun', true)  ;

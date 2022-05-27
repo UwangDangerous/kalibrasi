@@ -7,7 +7,7 @@
         <meta name="author" content="<?= SEO ;?>" />
         <title><?= $judul; ?></title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/templates/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/img/logo-bpom.png" />
         <!-- Bootstrap Icons-->
         <link rel="stylesheet" href="<?=base_url(); ?>assets/bootstrap/css/bootstrap.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />

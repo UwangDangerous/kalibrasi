@@ -1,7 +1,40 @@
 
         <!-- Footer-->
         <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col m6">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5732321271853!2d106.85679151530861!3d-6.187821095520321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f45a2a367acd%3A0xe71da3192bd71972!2sPusat+Pengujian+Obat+Dan+Makanan+Nasional!5e0!3m2!1sid!2sid!4v1539076197218" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                
+                    <div class="col m3">
+                        <h5>Kontak Kami</h5>
+                        <i class="fa fa-map-marker-alt"></i>
+                        Pusat Riset dan Kajian Obat Makanan Badan Pengawas Obat dan Makanan <br> Jalan Percetakan Negara No.23 Jakarta Pusat 10560
+                        <br>
+                        <br>
+                        <i class="fa fa-phone"></i>
+                        0812312
+                        0812312
+                        <br>
+                        <br>
+                        <i class="fa fa-envelope">
+                        asdfasdf@adsfasf.sdf
+                        </i>
+                
+                        <br><br>
+                        <h5>Jadwal layanan</h5>
+                        Senin - Kamis : pukul 08:00 - 16:00 <br>
+                        Jumat : pukul 08:00 - 15:00 <br>
+                        Waktu setempat 
+                    </div>
+                
+                </div>
+            </div>
+
+            <br><br>
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Pusat Pengembangan Pengujian Obat dan Makanan Nasional</div></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

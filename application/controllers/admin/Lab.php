@@ -116,6 +116,72 @@
             $this->session->set_flashdata($pesan) ;
             redirect("admin/lab") ;
         }
+
+
+
+
+// ====================================================================================================================
+        public function utility()
+        {
+            if( $this->session->userdata('key_kalibrasi') != null && $this->session->userdata('key_kalibrasi') == 1 ){
+                $data['judul'] = 'Pengaturan Halaman Depan '; 
+                $data['header'] = 'Pengaturan'; 
+                $data['bread'] = '
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'dashboard"> Dashboard </a> </li>
+                    <li class="breadcrumb-item active" aria-current="page">Pengaturan</li>
+                '; 
+
+                $data['utility'] = $this->db->get('_utility')->result_array() ;
+                
+                $this->load->view('temp/header',$data) ;
+                $this->load->view('temp/dsbHeader') ;
+                $this->load->view('admin/utility') ;
+                $this->load->view('temp/dsbFooter') ;
+                $this->load->view('temp/footer') ;
+
+            }else{
+                $this->session->set_flashdata("login", "Silahkan Login Kembali");
+                redirect("login") ;
+            }
+        }
+
+        public function edit_uti($id)
+        {
+            if( $this->session->userdata('key_kalibrasi') != null && $this->session->userdata('key_kalibrasi') == 1 ){
+                $data['judul'] = 'Pengaturan Halaman Depan '; 
+                $data['header'] = 'Pengaturan'; 
+                $data['bread'] = '
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'dashboard"> Dashboard </a> </li>
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'admin/lab/utility"> Pengaturan </a> </li>
+                    <li class="breadcrumb-item active" aria-current="page">Ubah</li>
+                '; 
+
+                $this->db->where('id_uti', $id) ;
+                $data['row'] = $this->db->get('_utility')->row_array() ;
+                
+                $this->form_validation->set_rules('judul', 'Judul', 'required');
+                $this->form_validation->set_rules('isi', 'Isi', 'required');
+
+                if($this->form_validation->run() == FALSE) {
+                    $this->load->view('temp/header',$data) ;
+                    $this->load->view('temp/dsbHeader') ;
+                    $this->load->view('admin/edit_uti') ;
+                    $this->load->view('temp/dsbFooter') ;
+                    $this->load->view('temp/footer') ;
+                }else{
+                    $this->db->where('id_uti', $id) ;
+                    $this->db->set(['judul' => $this->input->post('judul'), 'isi' => $this->input->post('isi')]) ;
+                    $this->db->update('_utility') ;
+
+                    $this->session->set_flashdata(['pesan'=>'Pengaturan berhasil diubah', 'warna'=>'success']) ;
+                    redirect("admin/lab/utility") ;
+                }
+
+            }else{
+                $this->session->set_flashdata("login", "Silahkan Login Kembali");
+                redirect("login") ;
+            }
+        }
     }
 
 ?>
