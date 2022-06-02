@@ -163,6 +163,12 @@
         }
 
 
+        public function test_qr()
+        {
+            $this->load->view('test_qr') ;
+        }
+
+
 
     }
 ?>

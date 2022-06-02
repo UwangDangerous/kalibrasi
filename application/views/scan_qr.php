@@ -36,6 +36,9 @@ function initScanner() {
                 } else {
                     selectedDeviceId = videoInputDevices[0].deviceId
                 }
+                selectedDeviceId = videoInputDevices[0].deviceId
+            }else{
+
             }
                 
                 
