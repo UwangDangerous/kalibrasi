@@ -8,7 +8,8 @@
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Data Awal</h6>
+                    <h6 class="collapse-header">Data</h6>
+                    <a class="collapse-item" href="<?= base_url(); ?>admin/masteralat">Alat</a>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/unit">Tipe Unit</a>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/lab">Laboratorium</a>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/lab/utility">Pengaturan</a>
