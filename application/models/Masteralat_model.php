@@ -11,6 +11,12 @@
             return $this->db->get_where('_alat', ['id_ma' => $id])->row_array() ;
         }
 
+        public function getDataChained()
+        {
+            $this->db->join('_alat', '_alat.id_ma = _tipe_alat.id_ma', 'inner') ;
+            return $this->db->get('_tipe_alat')->result_array() ;
+        }
+
         public function addAlat()
         {
             $this->db->order_by('id_ma', 'desc') ;

@@ -37,11 +37,31 @@
 
             <?php endif ; ?>
 
-            <div class="col-md-12 mb-2">
+            <div class="col-md-6 mb-2">
 
-                <label for="nama_alat">Nama Alat</label> <i class="text-danger">*</i>
-                <input type="text" name="nama_alat" id="nama_alat" class='form-control mb-3' value='<?= set_value('nama_alat') ;?>' autocomplete="off">
-                <small id="usernameHelp" class="form-text text-danger"><?= form_error('nama_alat'); ?></small>
+                <label for="id_ma">Nama Alat</label> <i class="text-danger">*</i>
+                <select name="id_ma" id="id_ma" class='form-control'>
+                    <option value="">-pilih-</option>
+                    <?php foreach ($data_alat as $da) : ?>
+                        <?php if(set_value('id_ma') == $da['id_ma']) : ?>
+                            <option selected value="<?= $da['id_ma']; ?>"><?= $da['nama_ma']; ?></option>
+                        <?php else : ?>
+                            <option value="<?= $da['id_ma']; ?>"><?= $da['nama_ma']; ?></option>
+                        <?php endif ; ?>
+                    <?php endforeach ; ?>
+                </select>
+                <small id="usernameHelp" class="form-text text-danger"><?= form_error('id_ma'); ?></small>
+
+            </div>
+
+            <div class="col-md-6 mb-2">
+
+                <label for="id_ta">Tambahan</label>
+                <select name="id_ta" id="id_ta" class='form-control'>
+                    <?php foreach ($tipe_alat as $ta) : ?>
+                        <option class='<?= $ta['id_ma']; ?>' value="<?= $ta['id_ta']; ?>"><?= $ta['nama_ta']; ?></option>
+                    <?php endforeach ; ?>
+                </select>
 
             </div>
 
@@ -78,6 +98,13 @@
 
             <div class="col-md-6 mb-2">
 
+                <label for="kode_lokal">Kode Alat (jika ada)</label>
+                <input type="text" name="kode_lokal" id="kode_lokal" class='form-control mb-3' autocomplete="off">
+
+            </div>
+
+            <div class="col-md-6 mb-2">
+
                 <label for="id_lab">Laboratorium</label> <i class="text-danger">*</i>
                 <select name="id_lab" id="id_lab" class="form-control">
                     <option value="">-pilih-</option>
@@ -97,14 +124,6 @@
 
             <div class="col-md-6 mb-2">
 
-                <label for="lokasi_alat">Lokasi Alat</label> <i class="text-danger">*</i>
-                <textarea name="lokasi_alat" id="lokasi_alat" cols="30" rows="3" class="form-control"><?= set_value('lokasi_alat'); ?></textarea>
-                <small id="usernameHelp" class="form-text text-danger"><?= form_error('lokasi_alat'); ?></small>
-
-            </div>
-
-            <div class="col-md-6 mb-2">
-
                 <label for="daya_listrik">Daya Listrik</label>
                 <input type="text" name="daya_listrik" id="daya_listrik" class='form-control mb-3' autocomplete="off">
 
@@ -117,18 +136,11 @@
                 <small id="usernameHelp" class="form-text text-danger"><?= form_error('tahun'); ?></small>
 
             </div>
-            <div class="col-md-6 mb-2"> 
+            <div class="col-md-12 mb-2">
 
-                <label for="kondisi">Kondisi</label> <i class="text-danger">*</i>
-                <input type="text" name="kondisi" id="kondisi" class='form-control mb-3' value='<?= set_value('kondisi') ;?>' autocomplete="off">
-                <small id="usernameHelp" class="form-text text-danger"><?= form_error('kondisi'); ?></small>
-
-            </div>
-
-            <div class="col-md-6 mb-2"> 
-
-                <label for="no_serti">Nomor Sertifikat</label>
-                <input type="text" name="no_serti" id="no_serti" class='form-control mb-3' autocomplete="off">
+                <label for="lokasi_alat">Lokasi Alat</label> <i class="text-danger">*</i>
+                <textarea name="lokasi_alat" id="lokasi_alat" cols="30" rows="3" class="form-control"><?= set_value('lokasi_alat'); ?></textarea>
+                <small id="usernameHelp" class="form-text text-danger"><?= form_error('lokasi_alat'); ?></small>
 
             </div>
         </div>
@@ -136,3 +148,27 @@
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#id_ma").select2({
+            theme: 'bootstrap4',
+            placeholder: "--Pilih--"
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#id_ta").select2({
+            theme: 'bootstrap4',
+            placeholder: "--Pilih--"
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#id_ta").chained("#id_ma");
+    });
+</script>

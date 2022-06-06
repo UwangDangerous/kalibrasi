@@ -19,7 +19,7 @@
             <div class="col-12">
                 <table cellpadding=2 cellspacing=2>
                     <tr>
-                        <th>Nama Alat</th> <td>:</td> <td><?= $alat['nama_alat']; ?></td>
+                        <th>Nama Alat</th> <td>:</td> <td><?= $alat['nama_ma']; ?> <?= $alat['nama_ta']; ?></td>
                     </tr>
                     <tr>
                         <th>Merek</th> <td>:</td> <td><?= $alat['merek']; ?></td>
@@ -41,9 +41,6 @@
                     </tr>
                     <tr>
                         <th>Daya Listrik</th> <td>:</td> <td><?= $alat['daya_listrik']; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Kondisi</th> <td>:</td> <td><?= $alat['kondisi']; ?></td>
                     </tr>
                     <tr>
                         <th><br></th>

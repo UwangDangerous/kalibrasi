@@ -11,6 +11,8 @@
 
             $this->db->join('admin','admin.id_admin = alat.id_admin') ;
             $this->db->join('unit', 'unit.id_unit = admin.id_unit') ;
+            $this->db->join('_alat', 'alat.id_ma = _alat.id_ma') ;
+            $this->db->join('_tipe_alat', 'alat.id_ta = _tipe_alat.id_ta', 'left') ;
             return $this->db->get('alat')->result_array() ;
         }
         public function getDataAlatEdit($id)
@@ -28,6 +30,8 @@
             $this->db->join('lab', 'lab.id_lab = alat.id_lab') ;
             $this->db->join('admin','admin.id_admin = alat.id_admin') ;
             $this->db->join('unit', 'unit.id_unit = admin.id_unit') ;
+            $this->db->join('_alat', 'alat.id_ma = _alat.id_ma') ;
+            $this->db->join('_tipe_alat', 'alat.id_ta = _tipe_alat.id_ta', 'left') ;
             return $this->db->get('alat')->row_array() ;
         }
 
@@ -46,9 +50,16 @@
 
             $kode = substr(md5(date("Y-m-d G:i:s")),0,15);
 
+            if($this->input->post('id_ta', true) == null) {
+                $id_ta = 0;
+            }else{
+                $id_ta = $this->input->post('id_ta', true) ;
+            }
+
             $query = [
                 'id_admin' => $this->input->post('id_admin', true) ,
-                'nama_alat' => $this->input->post('nama_alat', true) ,
+                'id_ma' => $this->input->post('id_ma', true) ,
+                'id_ta' => $id_ta ,
                 'merek' => $this->input->post('merek', true) ,
                 'tipe' => $this->input->post('tipe', true) ,
                 'no_seri' => $this->input->post('no_seri', true) ,
@@ -57,8 +68,6 @@
                 'lokasi_alat' => $this->input->post('lokasi_alat', true) ,
                 'daya_listrik' => $this->input->post('daya_listrik', true) ,
                 'tahun' => $tahun,
-                'kondisi' => $this->input->post('kondisi', true) ,
-                'no_serti' => $this->input->post('no_serti', true) ,
                 'kode_alat' => $kode
             ];
 

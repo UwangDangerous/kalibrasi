@@ -21,7 +21,6 @@
                     <th class='align-middle'>Admin</th>
                     <th class='align-middle'>Nama Alat</th>
                     <th class='align-middle'>No Seri</th>
-                    <th class='align-middle'>No BMN</th>
                     <th class='align-middle'>Laboratorium</th>
                     <th class='align-middle'>Tahun</th>
                     <th class='align-middle'>Aksi</th>
@@ -39,11 +38,8 @@
                                 <?= $row['nama_unit']; ?> <?= $row['nama_admin']; ?>
                             <?php endif ; ?>
                         </td>
-                        <td><?= $row['nama_alat']; ?> , <?= $row['merek']; ?>, <?= $row['tipe']; ?></td>
+                        <td><?= $row['nama_ma']; ?> <?= $row['nama_ta']; ?></td>
                         <td><?= $row['no_seri']; ?></td>
-                        <td>
-                            <?= $row['lokasi_alat']; ?>
-                        </td>
                         <td><?= $row['nama_lab']; ?></td>
                         <td><?= $row['tahun']; ?></td>
                         <td>
@@ -92,7 +88,7 @@
                                         <hr>
 
                                         <div class="col-4">Nama Alat</div>
-                                        <div class="col-6">: <?= $row['nama_alat']; ?></div>
+                                        <div class="col-6">: <?= $row['nama_ma']; ?> <?= $row['nama_ta']; ?></div>
 
                                         <div class="col-4">Merek</div>
                                         <div class="col-6">: <?= $row['merek']; ?></div>
@@ -114,12 +110,6 @@
                                         
                                         <div class="col-4">Daya Listrik</div>
                                         <div class="col-6">: <?= $row['daya_listrik']; ?></div>
-
-                                        <div class="col-4">Kondisi</div>
-                                        <div class="col-6">: <?= $row['kondisi']; ?></div>
-
-                                        <div class="col-4">Nomor Sertifikat</div>
-                                        <div class="col-6">: <?= $row['no_serti']; ?></div>
 
                                         <div class="col-4">QR Code</div>
                                         <div class="col-6">:
