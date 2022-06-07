@@ -128,11 +128,19 @@
         public function hapus($id) 
         {
             $this->db->where('id_alat', $id) ;
+            $img = $this->db->get('alat')->row_array() ;
+
+            $this->db->where('id_alat', $id) ;
             if($this->db->delete('alat')) {
                 $pesan = [
                     'pesan' => 'Data Berhasil Dihapus' ,
                     'warna' => 'success'
                 ];
+
+                $target = "assets/qr_code/$img[kode_alat].png" ;
+                if(file_exists($target)){
+                    unlink($target) ;
+                }
             }else{
                 $pesan = [
                     'pesan' => 'Data Gagal Dihapus' ,

@@ -53,6 +53,8 @@
                         <li class="nav-item"><a class="nav-link" href="<?= base_url();?>#about">Tentang Kami</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url();?>#scan">SCAN QR</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url();?>#contact">Hubungi Kami</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url();?>registrasi#regist">Registrasi Akun</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url();?>">Login</a></li>
                     </ul>
                 </div>
             </div>
