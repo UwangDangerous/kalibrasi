@@ -1,4 +1,25 @@
-
+<div class="modal fade" id="login-pelaksana" tabindex="-1" role="dialog" aria-labelledby="login-pelaksanaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="login-pelaksanaLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="post">
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+        
+        
         <!-- Footer-->
         <footer class="bg-light py-5">
             <div class="container">
