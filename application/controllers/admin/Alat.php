@@ -69,7 +69,6 @@
                     $this->load->view('temp/footer') ;
 
                 }else{
-
                     $this->Alat_model->addAlat() ;
 
                 }
@@ -137,7 +136,7 @@
                     'warna' => 'success'
                 ];
 
-                $target = "assets/qr_code/$img[kode_alat].png" ;
+                $target = "assets/qr-code/$img[kode_alat].png" ;
                 if(file_exists($target)){
                     unlink($target) ;
                 }
@@ -174,6 +173,19 @@
                 $this->session->set_flashdata("login", "Silahkan Login Kembali");
                 redirect("login") ;
             }
+        }
+
+        public function getQR($kode, $id) 
+        {
+            $this->QRCode_model->qrGenerator($kode) ;
+            $pesan = [
+                'pesan' => 'QR Code Berhasil Di perbaharui' ,
+                'warna' => 'success' ,
+                'id' => $id
+            ];
+
+            $this->session->set_flashdata($pesan) ;
+            redirect("admin/alat") ;
         }
     }
 

@@ -137,11 +137,18 @@
                 <small id="usernameHelp" class="form-text text-danger"><?= form_error('tahun'); ?></small>
 
             </div>
-            <div class="col-md-12 mb-2">
+            <div class="col-md-6 mb-2">
 
                 <label for="lokasi_alat">Lokasi Alat</label> <i class="text-danger">*</i>
                 <textarea name="lokasi_alat" id="lokasi_alat" cols="30" rows="3" class="form-control"><?= set_value('lokasi_alat'); ?></textarea>
                 <small id="usernameHelp" class="form-text text-danger"><?= form_error('lokasi_alat'); ?></small>
+
+            </div>
+            <div class="col-md-6 mb-2">
+
+                <label for="perolehan">Nilai Perolehan</label>
+                <input type="number" name="perolehan" id="perolehan" class='form-control mb-3' autocomplete="off" placeholder="tuliskan tanpa titik koma c: (10000000)">
+                <small id="usernameHelp" class="form-text text-danger"></small>
 
             </div>
         </div>

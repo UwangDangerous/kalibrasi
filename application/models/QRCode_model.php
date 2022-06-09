@@ -32,6 +32,20 @@
             imagepng($QR, './assets/qr_code/'.$kode.'.png');
             imagedestroy($QR);
         }
+
+        public function qrGenerator($kode) 
+        {
+            require 'vendor/autoload.php'; // load folder vendor/autoload
+            $qrCode = new Endroid\QrCode\QrCode($kode); // mengambil data kode siswa sebagai data  QR code
+            $qrCode->writeFile('./assets/qr-code/' . $kode . '.png'); // direktori untuk menyimpan gambar QR code
+        }
+
+        public function qrDecoder($kode)
+        {
+            require "vendor/autoload.php";
+            $qrcode = new QrReader('./assets/qr-code/'. $kode .'.png');
+            $text = $qrcode->text(); //return decoded text from QR Code
+        }
     }
 
 ?>

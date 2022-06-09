@@ -48,14 +48,12 @@
                 redirect("admin/alat") ;
             } 
 
-            $kode = substr(md5(date("Y-m-d G:i:s")),0,15);
-
             if($this->input->post('id_ta', true) == null) {
                 $id_ta = 0;
             }else{
                 $id_ta = $this->input->post('id_ta', true) ;
             }
-
+            $kode = substr(md5(date("Y-m-d G:i:s")),0,15);
             $query = [
                 'id_admin' => $this->input->post('id_admin', true) ,
                 'id_ma' => $this->input->post('id_ma', true) ,
@@ -68,6 +66,7 @@
                 'lokasi_alat' => $this->input->post('lokasi_alat', true) ,
                 'daya_listrik' => $this->input->post('daya_listrik', true) ,
                 'tahun' => $tahun,
+                'perolehan' => $this->input->post('perolehan'),
                 'kode_alat' => $kode
             ];
 
@@ -83,8 +82,9 @@
                     'warna' => 'danger'
                 ];
             }
+            // die ;
 
-            $this->QRCode_model->setQR($kode) ;
+            $this->QRCode_model->qrGenerator($kode) ;
             $this->session->set_flashdata($pesan) ;
             redirect("admin/alat") ;
         }
@@ -125,7 +125,8 @@
             {
                 $pesan = [
                     'pesan' => 'Data Berhasil Diubah' ,
-                    'warna' => 'success'
+                    'warna' => 'success',
+                    'id' => $id
                 ];
             }else{
                 $pesan = [
