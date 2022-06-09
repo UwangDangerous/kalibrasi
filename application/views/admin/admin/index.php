@@ -46,7 +46,7 @@
                             <a href="#" data-toggle="modal" data-target="#rinci_<?= $row['id_admin']; ?>" data-toggle='tooltip' title='Rincian Data' class="badge badge-primary"><i class="fa fa-eye"></i></a>
                             <a href="<?= base_url(); ?>admin/admin/ubah/<?= $row['id_admin']; ?>" data-toggle='tooltip' title='Ubah Data' class="badge badge-success"><i class="fa fa-edit"></i></a>
                             <?php if($row['id_admin'] != 1) : ?>
-                                <a href="<?= base_url(); ?>admin/admin/hapus/<?= $row['id_admin']; ?>" data-toggle='tooltip' title='Hapus Data' class="badge badge-danger"><i class="fa fa-trash" onclick="return confirm('Yakin Hapus?');"></i></a>
+                                <a href="<?= base_url(); ?>admin/admin/hapus/<?= $row['id_admin']; ?>" data-toggle='tooltip' title='Hapus Data' class="badge badge-danger" onclick="return confirm('Yakin Hapus?');"><i class="fa fa-trash"></i></a>
                             <?php endif ; ?>
                         </td>
                     </tr>

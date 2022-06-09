@@ -1,8 +1,8 @@
 <div class="modal fade" id="login-pelaksana" tabindex="-1" role="dialog" aria-labelledby="login-pelaksanaLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="login-pelaksanaLabel">Login</h5>
+        <h4 class="modal-title" id="login-pelaksanaLabel">Login</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -21,19 +21,7 @@
       </form>
     </div>
   </div>
-</div>
-
-<!-- <script>
-  $("#login-submit").submit(function(e){
-      e.preventDefault();
-      $.ajax({
-          url: '<?//= base_url(); ?>registrasi/login',
-          type: 'post',
-          data: $(this).serialize()
-      });
-  })
-</script> -->
-        
+</div>  
         
         <!-- Footer-->
         <footer class="bg-light py-5">
@@ -108,25 +96,6 @@
                 $('#tabel').dataTable();
             } );
         </script>
-
-<!-- <video src="" ></video>
-    <br />
-<button id='flipCamera'>Flip</button>
-</body>
-<script>
-  var front = false;
-var video = document.querySelector('video');
-  document.getElementById('flipCamera').onclick = function() { front = !front; };
-  var constraints = { video: { facingMode: (front? "user" : "environment"), width: 640, height: 480  } };
-  navigator.mediaDevices.getUserMedia(constraints)
-  .then(function(mediaStream) {
-    video.srcObject = mediaStream;
-    video.onloadedmetadata = function(e) {
-    video.play();
-};
-})
-.catch(function(err) { console.log(err.name + ": " + err.message); })
-</script></html> -->
         
     </body>
 </html>

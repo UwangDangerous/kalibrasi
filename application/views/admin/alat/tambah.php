@@ -58,6 +58,7 @@
 
                 <label for="id_ta">Tambahan</label>
                 <select name="id_ta" id="id_ta" class='form-control'>
+                    <option value="">-pilih-</option>
                     <?php foreach ($tipe_alat as $ta) : ?>
                         <option class='<?= $ta['id_ma']; ?>' value="<?= $ta['id_ta']; ?>"><?= $ta['nama_ta']; ?></option>
                     <?php endforeach ; ?>
@@ -161,6 +162,15 @@
 <script>
     $(document).ready(function () {
         $("#id_ta").select2({
+            theme: 'bootstrap4',
+            placeholder: "--Pilih--"
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#id_admin").select2({
             theme: 'bootstrap4',
             placeholder: "--Pilih--"
         });

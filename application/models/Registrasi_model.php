@@ -13,7 +13,8 @@
                 'bagian' => $this->input->post('bagian') ,
                 'username' => $this->input->post('username') ,
                 'password' => $pw ,
-                'status' => 0
+                'status' => 0,
+                'id_admin' => 1
             ] ;
             
             if($this->db->insert('pelaksana', $query)) {

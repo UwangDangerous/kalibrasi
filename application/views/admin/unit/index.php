@@ -32,7 +32,7 @@
                         <td><?= $row['nama_lain'] ?></td>
                         <td>
                             <a href="<?= base_url(); ?>admin/unit/ubah/<?= $row['id_unit']; ?>" data-toggle='tooltip' title='Ubah Data' class="badge badge-success"><i class="fa fa-edit"></i></a>
-                            <a href="<?= base_url(); ?>admin/unit/hapus/<?= $row['id_unit']; ?>" data-toggle='tooltip' title='Hapus Data' class="badge badge-danger"><i class="fa fa-trash" onclick="return confirm('Yakin Hapus?');"></i></a>
+                            <a href="<?= base_url(); ?>admin/unit/hapus/<?= $row['id_unit']; ?>" data-toggle='tooltip' title='Hapus Data' class="badge badge-danger" onclick="return confirm('Yakin Hapus?');"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                 <?php endforeach ; ?>

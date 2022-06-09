@@ -10,7 +10,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Data</h6>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/masteralat">Alat</a>
-                    <a class="collapse-item" href="<?= base_url(); ?>admin/unit">Tipe Unit</a>
+                    <a class="collapse-item" href="<?= base_url(); ?>admin/unit">Unit</a>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/lab">Laboratorium</a>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/lab/utility">Pengaturan</a>
                     <a class="collapse-item" href="<?= base_url(); ?>admin/lab/pesan">Pesan</a>
@@ -21,7 +21,7 @@
         <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>admin/admin">
             <i class="fa fa-users"></i>
-            <span>Daftar Admin</span></a>
+            <span>Daftar Admin</span>
         </a>
     </li>
 
@@ -31,7 +31,14 @@
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>admin/alat">
             <i class="fas fa-toolbox"></i>
-            <span>Daftar Alat</span></a>
+            <span>Daftar Alat</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>admin/pelaksana">
+            <i class="fas fa-user-tie"></i>
+            <span>Daftar User</span>
         </a>
     </li>
 

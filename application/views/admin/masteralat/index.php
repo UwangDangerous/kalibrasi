@@ -37,7 +37,7 @@
                         <td><?= $row['nama_ma']; ?></td>
                         <td>
                             <a href="<?= base_url(); ?>admin/masteralat/ubah/<?= $row['id_ma']; ?>" data-toggle='tooltip' title='Ubah Data' class="badge badge-success"><i class="fa fa-edit"></i></a>
-                            <a href="<?= base_url(); ?>admin/masteralat/hapus/<?= $row['id_ma']; ?>" data-toggle='tooltip' title='Hapus Data' class="badge badge-danger"><i class="fa fa-trash" onclick="return confirm('Data Akan Dihapus , Yakin?')"></i></a>
+                            <a href="<?= base_url(); ?>admin/masteralat/hapus/<?= $row['id_ma']; ?>" data-toggle='tooltip' title='Hapus Data' class="badge badge-danger" onclick="return confirm('Data Akan Dihapus , Yakin?')"><i class="fa fa-trash"></i></a>
                             <a href="<?= base_url(); ?>admin/masteralat/tipe/<?= $row['id_ma']; ?>" data-toggle='tooltip' title='Tipe Alat' class="badge badge-primary"><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>

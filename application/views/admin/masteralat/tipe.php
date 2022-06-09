@@ -39,7 +39,7 @@
                         <td><?= $row['nama_ta']; ?></td>
                         <td>
                             <a href="#ubah" data-toggle='modal' data-target='#ubah_<?= $row['id_ta'];?>' data-toggle='tooltip' title='Ubah Data' class="badge badge-success"><i class="fa fa-edit"></i></a>
-                            <a href="<?= base_url(); ?>admin/masteralat/hapustipe/<?= $row['id_ma']; ?>/<?= $row['id_ta']; ?>" data-toggle='tooltip' title='Hapus Data' class="badge badge-danger"><i class="fa fa-trash" onclick="return confirm('Data Akan Dihapus , Yakin?')"></i></a>
+                            <a href="<?= base_url(); ?>admin/masteralat/hapustipe/<?= $row['id_ma']; ?>/<?= $row['id_ta']; ?>" data-toggle='tooltip' title='Hapus Data' class="badge badge-danger" onclick="return confirm('Data Akan Dihapus , Yakin?')"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
 
