@@ -7,9 +7,13 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="" method="post">
+      <form action="<?= base_url();?>registrasi/login" method="post">
           <div class="modal-body">
-            ...
+            <label for="username">Username / Email / NIK / NIP</label>
+            <input type="text" name="username" id="username" class='form-control'>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class='form-control'>
+            <br>
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Login</button>
@@ -18,6 +22,17 @@
     </div>
   </div>
 </div>
+
+<!-- <script>
+  $("#login-submit").submit(function(e){
+      e.preventDefault();
+      $.ajax({
+          url: '<?//= base_url(); ?>registrasi/login',
+          type: 'post',
+          data: $(this).serialize()
+      });
+  })
+</script> -->
         
         
         <!-- Footer-->
@@ -94,6 +109,24 @@
             } );
         </script>
 
+<!-- <video src="" ></video>
+    <br />
+<button id='flipCamera'>Flip</button>
+</body>
+<script>
+  var front = false;
+var video = document.querySelector('video');
+  document.getElementById('flipCamera').onclick = function() { front = !front; };
+  var constraints = { video: { facingMode: (front? "user" : "environment"), width: 640, height: 480  } };
+  navigator.mediaDevices.getUserMedia(constraints)
+  .then(function(mediaStream) {
+    video.srcObject = mediaStream;
+    video.onloadedmetadata = function(e) {
+    video.play();
+};
+})
+.catch(function(err) { console.log(err.name + ": " + err.message); })
+</script></html> -->
         
     </body>
 </html>

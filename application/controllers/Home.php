@@ -44,6 +44,7 @@
                 $key = $this->input->get('k') ;
                 $data['judul'] = 'Kalibrasi - PPPOMN '; 
                 $data['brand'] =  $this->db->get_where('_utility',['penggunaan' => 'brand'])->row_array()['judul'];
+                $data['jumbotron'] =  $this->db->get_where('_utility',['penggunaan' => 'jumbotron'])->row_array();
 
                 $this->load->model('Alat_model') ;
                 $data['alat'] = $this->Alat_model->getDataAlatKey($key) ;

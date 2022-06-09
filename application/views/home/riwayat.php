@@ -1,6 +1,3 @@
-<header class="masthead">
-</header>
-<!-- <link rel="stylesheet" href="<?//=base_url(); ?>assets/bootstrap/css/bootstrap.css"> -->
 <link rel="stylesheet" href="<?= base_url();?>assets/css/dataTables.bootstrap4.min.css">
 
 <script src="<?= base_url(); ?>assets/js/dataTables.js" ></script>

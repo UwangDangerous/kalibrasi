@@ -33,6 +33,46 @@
                 $this->Registrasi_model->addRegist() ;
             }
         }
+
+        public function login()
+        {
+            $name = $this->input->post('username') ;
+            $pass = md5(sha1($this->input->post('password'))) ;
+            $this->db->where('email', $name) ;
+            $this->db->or_where('nip', $name) ;
+            $this->db->or_where('username', $name) ;
+            $data = $this->db->get('pelaksana')->row_array() ;
+            if($data) {
+
+                if($data['password'] == $pass) {
+                    $pesan = [
+                        'pesan_login' => 'Login Berhasil',
+                        'warna_login' => 'success'
+                    ];
+
+                    $userdata = [
+                        'key_pelaksana' => $data['id_pelaksana'] ,
+                        'pelaksana' => $data['nama_pelaksana'] 
+                    ];
+
+                    $this->session->set_userdata($userdata) ;
+
+                }else{
+                    $pesan = [
+                        'pesan_login' => 'Password Salah <a href="#" data-toggle="modal" data-target="#login-pelaksana">Login</a>',
+                        'warna_login' => 'danger'
+                    ];
+                }
+
+            }else{
+                $pesan = [
+                    'pesan_login' => 'Gagal Login, Akun Anda Belum Terdaftar, <a href="'.base_url().'registrasi#regist">Silahkan Daftar Terlebih Dahulu</a>',
+                    'warna_login' => 'danger'
+                ];
+            }
+            $this->session->set_flashdata($pesan) ;
+            redirect("") ;
+        }
     }
 
 ?>
