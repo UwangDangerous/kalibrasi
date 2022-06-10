@@ -29,6 +29,8 @@
             $this->db->where('kode_alat', $key) ;
             $this->db->join('lab', 'lab.id_lab = alat.id_lab') ;
             $this->db->join('admin','admin.id_admin = alat.id_admin') ;
+            $this->db->join('_kota','_kota.id_kota = admin.id_kota') ;
+            $this->db->join('_provinsi','_provinsi.id_prov = _kota.id_prov') ;
             $this->db->join('unit', 'unit.id_unit = admin.id_unit') ;
             $this->db->join('_alat', 'alat.id_ma = _alat.id_ma') ;
             $this->db->join('_tipe_alat', 'alat.id_ta = _tipe_alat.id_ta', 'left') ;

@@ -10,7 +10,7 @@
 
         public function index() 
         {
-            if( $this->session->userdata('key_kalibrasi') != null && $this->session->userdata('key_kalibrasi') == 1 ){
+            if( $this->session->userdata('key_kalibrasi') != null){
                 $data['judul'] = 'Pengguna dan Pelaksana Alat '; 
                 $data['header'] = 'Pengguna dan Pelaksana Alat'; 
                 $data['bread'] = '
