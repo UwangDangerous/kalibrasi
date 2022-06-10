@@ -14,8 +14,12 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" class='form-control'>
             <br>
+            <br>
+            <br>
+            <span class="text-danger" style="font-size:9px">*Jika PNS Gunakan Akun SIASN Untuk Login</span>
           </div>
           <div class="modal-footer">
+            <a href="<?= base_url(); ?>registrasi#regist" class="btn btn-primary" data-toggle="Registrasi Akun">Registrasi</a>
             <button type="submit" class="btn btn-primary">Login</button>
           </div>
       </form>

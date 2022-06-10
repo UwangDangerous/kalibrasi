@@ -51,11 +51,11 @@
                 </table>
             </div>
 
-            <div class="col-12 mt-4">
+            <!-- <div class="col-12 mt-4">
                 <br><br>
                 <div id="riwayatKalibrasi"></div>
                 
-            </div>
+            </div> -->
 
             <div class="col-12 mt-4">
                 <br><br>
@@ -68,6 +68,6 @@
 
 <script>
     $("#riwayatPemakaian").load("<?= base_url();?>Home/riwayatPemakaian/<?= $alat['id_alat']; ?>");
-    $("#riwayatKalibrasi").load("<?= base_url();?>Home/riwayatKalibrasi/<?= $alat['id_alat']; ?>");
+    // $("#riwayatKalibrasi").load("<?//= base_url();?>Home/riwayatKalibrasi/<?//= $alat['id_alat']; ?>");
 </script>
 

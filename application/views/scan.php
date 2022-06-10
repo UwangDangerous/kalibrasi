@@ -22,7 +22,7 @@
             }
         );
         scanner.addListener('scan', function(content) {
-            window.location.href = "<?= base_url(); ?>home/riwayatPenggunaanAlat?k="+content;
+            window.location.href = "<?= base_url(); ?>home/riwayatPenggunaanAlat?k="+content+"#riwayat";
         });
         Instascan.Camera.getCameras().then(function(cameras){
             if(cameras.length>0){

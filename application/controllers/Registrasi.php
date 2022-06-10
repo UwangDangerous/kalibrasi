@@ -73,6 +73,12 @@
             $this->session->set_flashdata($pesan) ;
             redirect("") ;
         }
+
+        public function logout()
+        {
+            $this->session->sess_destroy() ;
+            redirect("") ;
+        }
     }
 
 ?>

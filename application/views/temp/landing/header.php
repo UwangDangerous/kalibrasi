@@ -67,7 +67,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="#">Riwayat Penggunaan</a>
                                     <a class="dropdown-item" href="#">Pengaturan</a>
-                                    <a class="dropdown-item" href="#">Logout</a>
+                                    <a class="dropdown-item" href="<?= base_url(); ?>registrasi/logout" onclick="return confirm('Akhiri session ini ?')">Logout</a>
                                 </div>
                             </li>
                         <?php else : ?>
@@ -90,7 +90,9 @@
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5"><?= $jumbotron['isi']; ?></p>
                         <a class="btn btn-primary btn-xl" href="#scan" data-target="#exampleModal">SCAN QR</a>
-                        <a class="btn btn-primary btn-xl" href="#" data-toggle="modal" data-target="#login-pelaksana">LOGIN</a>
+                        <?php if($this->session->userdata('key_pelaksana') == null) : ?>
+                            <a class="btn btn-primary btn-xl" href="#" data-toggle="modal" data-target="#login-pelaksana">LOGIN</a>
+                        <?php endif ; ?>
                     </div>
                     <?php if($this->session->flashdata('pesan_login')) : ?>
                         <div class="col-lg-6 col-md-6" id="hilang-shadow">

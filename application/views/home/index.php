@@ -42,7 +42,11 @@
                 <br><br><br><br><br>
                 
                 <div class="d-grid" id="btn-scan">
-                    <button class="btn btn-primary btn-xl bayangan" type="button" target="blank" id="go-scan">buka kamera</button>
+                    <?php if($this->session->userdata('key_pelaksana')) : ?>
+                        <button class="btn btn-primary btn-xl bayangan" type="button" target="blank" id="go-scan">buka kamera</button>
+                    <?php else : ?>
+                        <a href="#" class="btn btn-primary btn-xl bayangan" data-toggle="modal" data-target="#login-pelaksana" data-toggle="tooltip" title="Silahkan Login Terlebih Dahulu">buka kamera</a>
+                    <?php endif ; ?>
                 </div>
                 
                 <div id="scan-kamera"></div>
