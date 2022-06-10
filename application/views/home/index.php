@@ -42,7 +42,7 @@
                 <br><br><br><br><br>
                 
                 <div class="d-grid" id="btn-scan">
-                    <button class="btn btn-primary btn-xl bayangan"  type="button" id="go-scan">buka kamera</button>
+                    <button class="btn btn-primary btn-xl bayangan" type="button" target="blank" id="go-scan">buka kamera</button>
                 </div>
                 
                 <div id="scan-kamera"></div>
@@ -97,6 +97,3 @@
         </div>
     </div>
 </section>
-
-
-

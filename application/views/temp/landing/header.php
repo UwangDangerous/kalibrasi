@@ -20,6 +20,9 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?= base_url(); ?>assets/templates/css/styles.css" rel="stylesheet" />
 
+
+        <!-- scan -->
+        <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" ></script>	
         <style>
             .divider{
                 background-color : blue ;

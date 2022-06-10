@@ -35,7 +35,7 @@
 
         public function scan_kamera()
         {
-            $this->load->view('scan_qr') ;
+            $this->load->view('scan') ;
         }
 
         public function riwayatPenggunaanAlat()

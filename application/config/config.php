@@ -23,7 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/kalibrasi/';
+$config['base_url'] = 'http://localhost/kalibrasi/'; //untuk assets
+
+$config['my_url'] = 'http://localhost/kalibrasi/'; //untuk memanngil class tambahkan index.php jika .htaccess tidak bisa di jalankan
 
 /*
 |--------------------------------------------------------------------------
