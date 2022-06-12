@@ -23,6 +23,7 @@
                 '; 
                 
                 $data['alat'] = $this->Alat_model->getDataAlat() ;
+                $data['admin'] = $this->Admin_model->getDataAdmin() ;
                 
                 $this->load->view('temp/header',$data) ;
                 $this->load->view('temp/dsbHeader') ;
@@ -187,6 +188,7 @@
             $this->session->set_flashdata($pesan) ;
             redirect("admin/alat") ;
         }
+
     }
 
 ?>
