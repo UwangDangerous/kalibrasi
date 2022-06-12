@@ -9,7 +9,7 @@
       </div>
       <form action="<?= base_url();?>registrasi/login" method="post">
           <div class="modal-body">
-            <label for="username">Username / Email / NIK / NIP</label>
+            <label for="username">Username / Email / ( NIK / NIP )</label>
             <input type="text" name="username" id="username" class='form-control'>
             <label for="password">Password</label>
             <input type="password" name="password" id="password" class='form-control'>

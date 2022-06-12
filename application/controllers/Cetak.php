@@ -19,6 +19,10 @@
             }
 
             $data['id_exe'] = rtrim($query, '|') ;
+            if($data['id_exe'] == '') {
+                $this->session->set_flashdata(['pesan' => 'tidak ada data terpilih', 'warna' => 'danger']) ;
+                redirect("admin/alat") ;
+            }
             $this->load->view('cetak/kartuAlat', $data) ;
         }
     }

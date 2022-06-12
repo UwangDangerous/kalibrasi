@@ -36,6 +36,31 @@
             }
         }
 
+        public function rincian($id)
+        {
+            if( $this->session->userdata('key_kalibrasi') != null ){
+                $data['judul'] = 'Rincian Data Alat '; 
+                $data['header'] = 'Rincian Data'; 
+                $data['bread'] = '
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'dashboard"> Dashboard </a> </li>
+                    <li class="breadcrumb-item" aria-current="page"> <a href="'.base_url().'admin/alat"> Daftar Alat </a> </li>
+                    <li class="breadcrumb-item active" aria-current="page">Rincian Data</li>
+                '; 
+
+                $data['alat'] = $this->Alat_model->getDataAlatEdit($id) ;
+                
+                    $this->load->view('temp/header',$data) ;
+                    $this->load->view('temp/dsbHeader') ;
+                    $this->load->view('admin/alat/rincian') ;
+                    $this->load->view('temp/dsbFooter') ;
+                    $this->load->view('temp/footer') ;
+
+            }else{
+                $this->session->set_flashdata("login", "Silahkan Login Kembali");
+                redirect("login") ;
+            }
+        }
+
         public function tambah()
         {
             if( $this->session->userdata('key_kalibrasi') != null ){
