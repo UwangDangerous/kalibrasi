@@ -32,11 +32,14 @@
             <tbody>
                 <?php $no = 1; ?>
                 <?php foreach ($pelaksana as $row) : ?>
-                    
-                    <?php if($this->session->flashdata('id') == $row['id_pelaksana']) : ?>
-                        <tr class="alert alert-success">
+                    <?php if($row['status'] == 0) : ?>
+                        <tr class="alert alert-danger">
                     <?php else : ?>
-                        <tr>
+                        <?php if($this->session->flashdata('id') == $row['id_pelaksana']) : ?>
+                            <tr class="alert alert-success">
+                        <?php else : ?>
+                            <tr>
+                        <?php endif ; ?>
                     <?php endif ; ?>
                             <td><?= $no++; ?></td>
                             <td><?= $row['nama_pelaksana'] ?></td>
@@ -51,6 +54,9 @@
                             <td>
                                 <a href="<?= base_url(); ?>admin/pelaksana/ubah/<?= $row['id_pelaksana']; ?>" data-toggle='tooltip' title='Ubah Data' class="badge badge-success"><i class="fa fa-edit"></i></a>
                                 <a href="<?= base_url(); ?>admin/pelaksana/hapus/<?= $row['id_pelaksana']; ?>" data-toggle='tooltip' title='Hapus Data' class="badge badge-danger" onclick="return confirm('Yakin Hapus?');"><i class="fa fa-trash"></i></a>
+                                <?php if($row['status'] == 0) : ?>
+                                    <a href="<?= base_url(); ?>admin/pelaksana/aktif/<?= $row['id_pelaksana']; ?>" data-toggle='tooltip' title='Lakukan Aktifasi' class="badge badge-secondary" onclick="return confirm('Aktifkan User?');"><i class="fa fa-check"></i></a>
+                                <?php endif ; ?>
                             </td>
                         </tr>
 

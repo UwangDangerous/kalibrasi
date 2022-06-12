@@ -9,7 +9,7 @@
             }else{
                 $this->db->join('admin', 'admin.id_admin = pelaksana.id_admin') ;
                 $this->db->join('unit', 'unit.id_unit = admin.id_unit') ;
-                $this->db->select('pelaksana.telepon as telepon, id_pelaksana, nama_pelaksana, pelaksana.email, satker, bagian, nama_admin, nama_unit, pelaksana.username as username') ;
+                $this->db->select('status,pelaksana.telepon as telepon, id_pelaksana, nama_pelaksana, pelaksana.email, satker, bagian, nama_admin, nama_unit, pelaksana.username as username') ;
             }
             return $this->db->get('pelaksana')->result_array() ;
         }
@@ -79,6 +79,27 @@
             }else{
                 $pesan = [
                     'pesan' => 'Data User Gagal Dihapus',
+                    'warna' => 'danger'
+                ];
+            }
+
+            $this->session->set_flashdata($pesan) ;
+            redirect("admin/pelaksana") ;
+        }
+
+        public function activePelaksana($id)
+        {
+            $this->db->where('id_pelaksana', $id) ;
+            $this->db->set('status', 1) ;
+            if($this->db->update('pelaksana')) {
+                $pesan = [
+                    'id' => $id,
+                    'pesan' => 'Berhasil Aktifkan User' ,
+                    'warna' => 'success' 
+                ] ;
+            }else{
+                $pesan = [
+                    'pesan' => 'Gagal Aktifkan User',
                     'warna' => 'danger'
                 ];
             }

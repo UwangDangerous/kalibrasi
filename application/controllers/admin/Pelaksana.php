@@ -110,6 +110,8 @@
         
         public function hapus($id){ $this->Pelaksana_model->deletePelaksana($id) ; }
 
+        public function aktif($id){ $this->Pelaksana_model->activePelaksana($id) ; }
+
         public function reset_password($id){ $this->Pelaksana_model->resetPasswordUser($id) ; }
     }
 
